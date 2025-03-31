@@ -1,16 +1,35 @@
-# todo_app_layered_architecture
 
-A new Flutter project.
+### 1. データアクセス層 (Data Access Layer)
 
-## Getting Started
+**ディレクトリ:**  `lib/domain/todos/shared_prefarences_todos_repository.dart`
 
-This project is a starting point for a Flutter application.
+-   TODOデータを`SharedPreferences`を使用して永続化します。
+    
+-   データの保存や取得の責務を持ちます。
+    
 
-A few resources to get you started if this is your first Flutter project:
+### 2. ドメイン層 (Domain Layer)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**ディレクトリ:**  `lib/domain`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-   アプリケーションのビジネスルールを定義します。
+    
+-   エンティティ（`Todo` モデル）やリポジトリインターフェースを管理します。
+    
+
+### 3. アプリケーションサービス層 (Application Service Layer)
+
+**ディレクトリ:**  `lib/use_cases`
+
+-   ビジネスロジックを実装し、データ層とUI層をつなぐ役割を持ちます。
+    
+-   ユースケースを定義し、データ取得や状態変更のロジックをここに記述します。
+    
+
+### 4. ユーザーインターフェース層 (User Interface Layer)
+
+**ディレクトリ:**  `lib/user_interfaces`
+
+-   ユーザーが操作する画面やウィジェットを管理します。
+    
+-   `Provider` や `Riverpod` などの状態管理を活用し、アプリの動作を制御します。
